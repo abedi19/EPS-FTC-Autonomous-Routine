@@ -12,8 +12,8 @@ import java.util.TimerTask;
  * Created by abedi on 11/20/2015.
  */
 public class Autonamous_Turn_Right extends OpMode {
-    final static double MOTOR_POWER = 0.15; // Higher values will cause the robot to move faster
-    final static double Motor_Power_Down = -0.15;
+    final static double MOTOR_POWER = 1; // Higher values will cause the robot to move faster
+    final static double Motor_Power_Reverse = -1;
 
     // final static double HOLD_IR_SIGNAL_STRENGTH = 0.20; // Higher values will cause the robot to follow closer
 

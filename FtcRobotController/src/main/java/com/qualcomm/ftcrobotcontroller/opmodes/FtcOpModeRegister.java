@@ -110,6 +110,7 @@ public class FtcOpModeRegister implements OpModeRegister
     //manager.register("PushBotIrSeek", PushBotIrSeek.class);
     //manager.register("PushBotSquare", PushBotSquare.class);
       manager.register("Test", MyFirstOpMode.class);
+      manager.register("Autonmous Right No Delay", Autonamous_Turn_Right.class);
 
   }
 }
