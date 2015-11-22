@@ -110,7 +110,11 @@ public class FtcOpModeRegister implements OpModeRegister
     //manager.register("PushBotIrSeek", PushBotIrSeek.class);
     //manager.register("PushBotSquare", PushBotSquare.class);
       manager.register("Test", MyFirstOpMode.class);
-      manager.register("Autonmous Right No Delay", Autonamous_Turn_Right.class);
+      manager.register("Autonomous Right No Delay", Autonamous_Turn_Right.class);
+      manager.register("Controller", RobotDrive.class);
+      manager.register("Calculate Forward",Calculate_Forward.class);
+      manager.register("Calculate Down", Calculate_Up_Down.class);
+      manager.register("Calculate Turn ",Calculate_Turn_Right.class);
 
   }
 }

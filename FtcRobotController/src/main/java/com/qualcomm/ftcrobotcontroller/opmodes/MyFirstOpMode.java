@@ -35,8 +35,8 @@ public class MyFirstOpMode extends OpMode {
     public void init() {
 //        legacyOne=hardwareMap.legacyModule.get(Legacy_module_2);
 //        motorDrive = hardwareMap.dcMotor.g
-        motorBackArticulator = hardwareMap.dcMotor.get("back_articulator");
-        motorFrontArticulator = hardwareMap.dcMotor.get("f_a");
+        motorBackArticulator = hardwareMap.dcMotor.get("back_legs");
+        motorFrontArticulator = hardwareMap.dcMotor.get("front_legs");
 
     }
 
