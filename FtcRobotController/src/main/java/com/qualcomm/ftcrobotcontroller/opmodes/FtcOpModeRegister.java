@@ -114,6 +114,7 @@ public class FtcOpModeRegister implements OpModeRegister
       manager.register("Controller", RobotDrive.class);
       manager.register("Red Ramp", RedRampLowZone.class);
       manager.register("AutoPark No Delay",AutoParkFast.class);
+      manager.register("AutoBackwardPark", AutoBackwardPark.class);
 
 
   }
