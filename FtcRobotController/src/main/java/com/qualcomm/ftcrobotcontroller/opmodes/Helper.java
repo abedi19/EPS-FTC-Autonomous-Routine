@@ -29,20 +29,20 @@ public class Helper extends OpMode {
     double leftPosition;
     double rightPosition;
 
-    DcMotor motorBackArticulator;
-    DcMotor motorFrontArticulator;
+    public DcMotor motorBackArticulator;
+   // public DcMotor motorFrontArticulator;
 
-    DcMotor motorFrontLeft;
-    DcMotor motorFrontRight;
-    DcMotor motorBackLeft;
-    DcMotor motorBackRight;
+    public DcMotor motorFrontLeft;
+    public DcMotor motorFrontRight;
+    public DcMotor motorBackLeft;
+    public DcMotor motorBackRight;
 
-    Servo servoDropper;
-    Servo servoLeftZipline;
-    Servo servoRightZipline;
+    public Servo servoDropper;
+    public Servo servoLeftZipline;
+    public Servo servoRightZipline;
 
     public Helper() {
-        motorFrontArticulator = hardwareMap.dcMotor.get("front_up");
+        // motorFrontArticulator = hardwareMap.dcMotor.get("front_up");
         motorBackArticulator = hardwareMap.dcMotor.get("back_up");
         motorFrontLeft = hardwareMap.dcMotor.get("front_left_drive");
         motorFrontRight = hardwareMap.dcMotor.get("front_right_drive");
@@ -54,6 +54,8 @@ public class Helper extends OpMode {
         servoLeftZipline.setPosition(1);
         servoRightZipline = hardwareMap.servo.get("rightzip");
         servoRightZipline.setPosition(0.5);
+
+
     }
     @Override
     public void init() {
@@ -95,5 +97,7 @@ public class Helper extends OpMode {
         motorBackRight.setPower(0.0);
         motorFrontRight.setPower(0.0);
         motorFrontLeft.setPower(0.0);
+        motorBackArticulator.setPower(0.0);
+       // motorFrontArticulator.setPower(0.0);
     }
 }
