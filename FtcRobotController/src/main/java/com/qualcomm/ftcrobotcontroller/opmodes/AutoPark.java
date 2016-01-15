@@ -28,6 +28,7 @@ public class AutoPark extends  OpMode{
     DcMotor motorBackRight;
 
     Helper helper = new Helper();
+    DcMotor[] motors = {motorBackArticulator, motorFrontArticulator, motorBackLeft, motorBackRight, motorFrontLeft, motorFrontRight};
 
 
     @Override
@@ -41,6 +42,7 @@ public class AutoPark extends  OpMode{
         motorBackLeft = hardwareMap.dcMotor.get("back_left_drive");
         motorBackRight = hardwareMap.dcMotor.get("back_right_drive");
 
+        DcMotor[] motors = {motorBackArticulator, motorFrontArticulator, motorBackLeft, motorBackRight, motorFrontLeft, motorFrontRight};
 
     } // end copy
 
@@ -50,7 +52,7 @@ public class AutoPark extends  OpMode{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-               helper.forward();
+               helper.forward(motors);
 
             }
         },15000) ;
@@ -59,10 +61,7 @@ public class AutoPark extends  OpMode{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                motorBackRight.setPower(0);
-                motorFrontLeft.setPower(0);
-                motorBackLeft.setPower(0);
-                motorFrontRight.setPower(0);
+                helper.stopMoving(motors);
             }
         }, 25000);
     }

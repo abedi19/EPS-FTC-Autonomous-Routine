@@ -42,6 +42,7 @@ public class RobotDrive extends OpMode {
     Servo servoRightZipline;
 
     Helper helper = new Helper();
+    DcMotor[] motors = {motorBackArticulator, motorFrontArticulator, motorBackLeft, motorBackRight, motorFrontLeft, motorFrontRight};
 
     @Override
     public void init() {
@@ -71,15 +72,15 @@ public class RobotDrive extends OpMode {
         // tank style steering
 // always make the Back Right motor go backwards as it is wired with the wrong polarity
         if (gamepad1.dpad_down) {
-            helper.forward();
+            helper.forward(motors);
         } else if (gamepad1.dpad_up) {
-           helper.back();
+           helper.back(motors);
         } else if (gamepad1.dpad_left) {
-            helper.turnLeft();
+            helper.turnLeft(motors);
         } else if (gamepad1.dpad_right) {
-            helper.turnRight();
+            helper.turnRight(motors);
         } else {
-            helper.stopMoving();
+            helper.stopMoving(motors);
         }
 
         if (gamepad1.left_bumper) {

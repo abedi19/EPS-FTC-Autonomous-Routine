@@ -66,34 +66,36 @@ public class Helper extends OpMode {
     public  void loop() {
     }
 
-    public  void forward (){
+    public  void forward (DcMotor[] motors){
         motorFrontLeft.setPower(MOTOR_POWER);
         motorFrontRight.setPower(MOTOR_POWER);
         motorBackLeft.setPower(MOTOR_POWER);
         motorBackRight.setPower(Motor_Power_Reverse);
     }
-    public void back (){
+    public void back (DcMotor[] motors){
         motorFrontLeft.setPower(Motor_Power_Reverse);
         motorFrontRight.setPower(Motor_Power_Reverse);
         motorBackLeft.setPower(Motor_Power_Reverse);
         motorBackRight.setPower(MOTOR_POWER);
     }
-    public void turnLeft (){
+    public void turnLeft (DcMotor[] motors){
         motorFrontLeft.setPower(Motor_Power_Reverse);
         motorBackLeft.setPower(Motor_Power_Reverse);
         motorBackRight.setPower(Motor_Power_Reverse);
         motorFrontRight.setPower(MOTOR_POWER);
     }
-    public void turnRight () {
+    public void turnRight (DcMotor[] motors) {
         motorFrontLeft.setPower(MOTOR_POWER);
         motorFrontRight.setPower(Motor_Power_Reverse);
         motorBackLeft.setPower(MOTOR_POWER);
         motorBackRight.setPower(MOTOR_POWER);
     }
-    public void stopMoving () {
+    public void stopMoving (DcMotor[] motors) {
         motorBackLeft.setPower(0.0);
         motorBackRight.setPower(0.0);
         motorFrontRight.setPower(0.0);
         motorFrontLeft.setPower(0.0);
+        motorBackArticulator.setPower(0.0);
+        motorFrontArticulator.setPower(0.0);
     }
 }
