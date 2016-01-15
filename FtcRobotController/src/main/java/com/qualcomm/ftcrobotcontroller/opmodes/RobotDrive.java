@@ -60,13 +60,13 @@ public class RobotDrive extends OpMode {
             helper.stopMoving();
         }
 
-//        if (gamepad1.left_bumper) {
-//            helper.motorFrontArticulator.setPower(MOTOR_POWER);
-//        } else if (gamepad1.left_trigger> 0.25 ) {
-//            helper.motorFrontArticulator.setPower(Motor_Power_Reverse);
-//        } else  {
-//            helper.motorFrontArticulator.setPower(0.0);
-      //  }
+        if (gamepad1.left_bumper) {
+            helper.motorFrontArticulator.setPower(MOTOR_POWER);
+        } else if (gamepad1.left_trigger> 0.25 ) {
+            helper.motorFrontArticulator.setPower(Motor_Power_Reverse);
+        } else  {
+            helper.motorFrontArticulator.setPower(0.0);
+        }
              // back treads
         if (gamepad1.right_bumper) {
             helper.motorBackArticulator.setPower(MOTOR_POWER);

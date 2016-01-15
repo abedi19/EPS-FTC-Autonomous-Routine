@@ -18,8 +18,6 @@ public class AutoBackwardPark extends  OpMode{
 
     // final static double HOLD_IR_SIGNAL_STRENGTH = 0.20; // Higher values will cause the robot to follow closer
 
-
-
     Helper helper;
 
 
@@ -28,8 +26,6 @@ public class AutoBackwardPark extends  OpMode{
 //        legacyOne=hardwareMap.legacyModule.get(Legacy_module_2);
 //        motorDrive = hardwareMap.dcMotor.g
         helper = new Helper();
-
-
     }
 
     @Override
@@ -55,7 +51,7 @@ public class AutoBackwardPark extends  OpMode{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                helper.back();
+                helper.back(motors);
             }
 
         },10000);
@@ -63,7 +59,7 @@ public class AutoBackwardPark extends  OpMode{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                helper.stopMoving();
+                helper.stopMoving(motors);
             }
         }, 11000);
 
