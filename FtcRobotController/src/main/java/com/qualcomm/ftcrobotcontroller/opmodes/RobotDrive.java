@@ -29,36 +29,13 @@ public class RobotDrive extends OpMode {
     double leftPosition;
     double rightPosition;
 
-    DcMotor motorBackArticulator;
-    DcMotor motorFrontArticulator;
+    Helper helper;
 
-    DcMotor motorFrontLeft;
-    DcMotor motorFrontRight;
-    DcMotor motorBackLeft;
-    DcMotor motorBackRight;
 
-    Servo servoDropper;
-    Servo servoLeftZipline;
-    Servo servoRightZipline;
-
-    Helper helper = new Helper();
-    DcMotor[] motors = {motorBackArticulator, motorFrontArticulator, motorBackLeft, motorBackRight, motorFrontLeft, motorFrontRight};
 
     @Override
     public void init() {
-        // setting specific motors to specific things in the hardware map
-        motorFrontArticulator = hardwareMap.dcMotor.get("front_up");
-        motorBackArticulator = hardwareMap.dcMotor.get("back_up");
-        motorFrontLeft = hardwareMap.dcMotor.get("front_left_drive");
-        motorFrontRight = hardwareMap.dcMotor.get("front_right_drive");
-        motorBackLeft = hardwareMap.dcMotor.get("back_left_drive");
-        motorBackRight = hardwareMap.dcMotor.get("back_right_drive");
-        servoDropper = hardwareMap.servo.get("dropper");
-        servoDropper.setPosition(0);
-        servoLeftZipline = hardwareMap.servo.get("leftzip");
-        servoLeftZipline.setPosition(1);
-        servoRightZipline = hardwareMap.servo.get("rightzip");
-        servoRightZipline.setPosition(0.5);
+        helper = new Helper();
 
     }
 
@@ -72,41 +49,41 @@ public class RobotDrive extends OpMode {
         // tank style steering
 // always make the Back Right motor go backwards as it is wired with the wrong polarity
         if (gamepad1.dpad_down) {
-            helper.forward(motors);
+            helper.forward();
         } else if (gamepad1.dpad_up) {
-           helper.back(motors);
+           helper.back();
         } else if (gamepad1.dpad_left) {
-            helper.turnLeft(motors);
+            helper.turnLeft();
         } else if (gamepad1.dpad_right) {
-            helper.turnRight(motors);
+            helper.turnRight();
         } else {
-            helper.stopMoving(motors);
+            helper.stopMoving();
         }
 
         if (gamepad1.left_bumper) {
-            motorFrontArticulator.setPower(MOTOR_POWER);
+            helper.motorFrontArticulator.setPower(MOTOR_POWER);
         } else if (gamepad1.left_trigger> 0.25 ) {
-            motorFrontArticulator.setPower(Motor_Power_Reverse);
+            helper.motorFrontArticulator.setPower(Motor_Power_Reverse);
         } else  {
-            motorFrontArticulator.setPower(0.0);
+            helper.motorFrontArticulator.setPower(0.0);
         }
              // back treads
         if (gamepad1.right_bumper) {
-            motorBackArticulator.setPower(MOTOR_POWER);
+            helper.motorBackArticulator.setPower(MOTOR_POWER);
         } else if (gamepad1.right_trigger > 0.25) {
-            motorBackArticulator.setPower(Motor_Power_Reverse);
+            helper.motorBackArticulator.setPower(Motor_Power_Reverse);
         } else {
-            motorBackArticulator.setPower(0.0);
+            helper.motorBackArticulator.setPower(0.0);
         }
 
         dropperPosition = Range.clip(dropperPosition, 0.0, 1.0);
         if(gamepad1.y) {
             // moves servo to position 0.5 aka 90 degrees
             dropperPosition= 1;
-            servoDropper.setPosition(dropperPosition);
+            helper.servoDropper.setPosition(dropperPosition);
         } else if (gamepad1.a) {
             dropperPosition= 0;
-            servoDropper.setPosition(dropperPosition);
+            helper.servoDropper.setPosition(dropperPosition);
         }
 
 //        // moves servo back and front
@@ -130,22 +107,22 @@ public class RobotDrive extends OpMode {
         if (gamepad1.x && leftPressed%2 == 0) {
             leftPosition = 0.5;
             leftPressed = 1 + leftPressed;
-            servoLeftZipline.setPosition(leftPosition);
+            helper.servoLeftZipline.setPosition(leftPosition);
         } else if (gamepad1.x && leftPressed%2 != 0) {
             leftPosition = 1.0;
             leftPressed = 1 + leftPressed;
-            servoLeftZipline.setPosition(leftPosition);
+            helper.servoLeftZipline.setPosition(leftPosition);
         }
         rightPosition = Range.clip(rightPosition, 0.0, 1.0);
 
         if (gamepad1.b && rightPressed%2 == 0) {
             rightPosition = 0.5;
             rightPressed = 1 + rightPressed;
-            servoRightZipline.setPosition(rightPosition);
+            helper.servoRightZipline.setPosition(rightPosition);
         } else if (gamepad1.b && rightPressed%2 != 0) {
             rightPosition = 0.0;
             rightPressed = 1 + rightPressed;
-            servoRightZipline.setPosition(rightPosition);
+            helper.servoRightZipline.setPosition(rightPosition);
 
         }
 

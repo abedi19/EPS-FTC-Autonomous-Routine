@@ -18,30 +18,14 @@ public class AutoBackwardPark extends  OpMode{
 
     // final static double HOLD_IR_SIGNAL_STRENGTH = 0.20; // Higher values will cause the robot to follow closer
 
-
-    DcMotor motorBackArticulator;
-    DcMotor motorFrontArticulator;
-
-    DcMotor motorFrontLeft;
-    DcMotor motorFrontRight;
-    DcMotor motorBackLeft;
-    DcMotor motorBackRight;
-
-    Helper helper = new Helper();
-    DcMotor[] motors = {motorBackArticulator, motorFrontArticulator, motorBackLeft, motorBackRight, motorFrontLeft, motorFrontRight};
-
+    Helper helper;
 
 
     @Override
     public void init () {
 //        legacyOne=hardwareMap.legacyModule.get(Legacy_module_2);
 //        motorDrive = hardwareMap.dcMotor.g
-        motorBackArticulator = hardwareMap.dcMotor.get("back_legs");
-        motorFrontArticulator = hardwareMap.dcMotor.get("front_legs");
-        motorFrontLeft = hardwareMap.dcMotor.get("front_left_drive");
-        motorFrontRight = hardwareMap.dcMotor.get("front_right_drive");
-        motorBackLeft = hardwareMap.dcMotor.get("back_left_drive");
-        motorBackRight = hardwareMap.dcMotor.get("back_right_drive");
+        helper = new Helper();
     }
 
     @Override
@@ -50,7 +34,7 @@ public class AutoBackwardPark extends  OpMode{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                helper.forward(motors);
+                helper.forward();
 
             }
         },1000) ;
@@ -58,7 +42,8 @@ public class AutoBackwardPark extends  OpMode{
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                helper.turnRight(motors);
+                helper.turnRight();
+
             }
         },5000);
 

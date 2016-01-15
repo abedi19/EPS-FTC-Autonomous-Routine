@@ -29,17 +29,17 @@ public class Helper extends OpMode {
     double leftPosition;
     double rightPosition;
 
-    DcMotor motorBackArticulator;
-    DcMotor motorFrontArticulator;
+    public DcMotor motorBackArticulator;
+    public DcMotor motorFrontArticulator;
 
-    DcMotor motorFrontLeft;
-    DcMotor motorFrontRight;
-    DcMotor motorBackLeft;
-    DcMotor motorBackRight;
+    public DcMotor motorFrontLeft;
+    public DcMotor motorFrontRight;
+    public DcMotor motorBackLeft;
+    public DcMotor motorBackRight;
 
-    Servo servoDropper;
-    Servo servoLeftZipline;
-    Servo servoRightZipline;
+    public Servo servoDropper;
+    public Servo servoLeftZipline;
+    public Servo servoRightZipline;
 
     public Helper() {
         motorFrontArticulator = hardwareMap.dcMotor.get("front_up");
@@ -54,6 +54,8 @@ public class Helper extends OpMode {
         servoLeftZipline.setPosition(1);
         servoRightZipline = hardwareMap.servo.get("rightzip");
         servoRightZipline.setPosition(0.5);
+
+
     }
     @Override
     public void init() {
@@ -66,36 +68,37 @@ public class Helper extends OpMode {
     public  void loop() {
     }
 
-    public  void forward (DcMotor[] motors){
+    public  void forward (){
         motorFrontLeft.setPower(MOTOR_POWER);
         motorFrontRight.setPower(MOTOR_POWER);
         motorBackLeft.setPower(MOTOR_POWER);
         motorBackRight.setPower(Motor_Power_Reverse);
     }
-    public void back (DcMotor[] motors){
+    public void back (){
         motorFrontLeft.setPower(Motor_Power_Reverse);
         motorFrontRight.setPower(Motor_Power_Reverse);
         motorBackLeft.setPower(Motor_Power_Reverse);
         motorBackRight.setPower(MOTOR_POWER);
     }
-    public void turnLeft (DcMotor[] motors){
+    public void turnLeft (){
         motorFrontLeft.setPower(Motor_Power_Reverse);
         motorBackLeft.setPower(Motor_Power_Reverse);
         motorBackRight.setPower(Motor_Power_Reverse);
         motorFrontRight.setPower(MOTOR_POWER);
     }
-    public void turnRight (DcMotor[] motors) {
+    public void turnRight () {
         motorFrontLeft.setPower(MOTOR_POWER);
         motorFrontRight.setPower(Motor_Power_Reverse);
         motorBackLeft.setPower(MOTOR_POWER);
         motorBackRight.setPower(MOTOR_POWER);
     }
-    public void stopMoving (DcMotor[] motors) {
+    public void stopMoving () {
         motorBackLeft.setPower(0.0);
         motorBackRight.setPower(0.0);
         motorFrontRight.setPower(0.0);
         motorFrontLeft.setPower(0.0);
         motorBackArticulator.setPower(0.0);
         motorFrontArticulator.setPower(0.0);
+
     }
 }
