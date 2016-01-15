@@ -63,10 +63,10 @@ public class Helper extends OpMode {
     }
 
     @Override
-    public  void loop() {
+    public void loop() {
     }
 
-    public  void forward (){
+    public void forward (){
         motorFrontLeft.setPower(MOTOR_POWER);
         motorFrontRight.setPower(MOTOR_POWER);
         motorBackLeft.setPower(MOTOR_POWER);

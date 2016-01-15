@@ -59,7 +59,7 @@ public class AutoBackwardPark extends  OpMode{
             @Override
             public void run() {
                 helper.turnRight();
-                helper.turnRight();
+
             }
         },5000);
 
