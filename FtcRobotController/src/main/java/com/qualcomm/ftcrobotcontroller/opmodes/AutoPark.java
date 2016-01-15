@@ -41,9 +41,7 @@ public class AutoPark extends  OpMode{
         motorFrontRight = hardwareMap.dcMotor.get("front_right_drive");
         motorBackLeft = hardwareMap.dcMotor.get("back_left_drive");
         motorBackRight = hardwareMap.dcMotor.get("back_right_drive");
-
-        DcMotor[] motors = {motorBackArticulator, motorFrontArticulator, motorBackLeft, motorBackRight, motorFrontLeft, motorFrontRight};
-
+        
     } // end copy
 
     @Override
