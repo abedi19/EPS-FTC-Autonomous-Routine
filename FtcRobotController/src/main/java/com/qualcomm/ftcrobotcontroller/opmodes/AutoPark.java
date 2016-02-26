@@ -1,7 +1,6 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,7 +18,7 @@ public class AutoPark extends  OpMode{
     // final static double HOLD_IR_SIGNAL_STRENGTH = 0.20; // Higher values will cause the robot to follow closer
 
 
-    Helper helper;
+    HelperOld helper;
 
 
 
@@ -27,7 +26,7 @@ public class AutoPark extends  OpMode{
     public void init () {
 //        legacyOne=hardwareMap.legacyModule.get(Legacy_module_2);
 //        motorDrive = hardwareMap.dcMotor.g
-        helper = new Helper();
+        helper = new HelperOld();
 
     } // end copy
 

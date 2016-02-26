@@ -111,7 +111,7 @@ public class FtcOpModeRegister implements OpModeRegister
     //manager.register("PushBotSquare", PushBotSquare.class);
     //manager.register("Test", MyFirstOpMode.class);
       manager.register("AutoPark", AutoPark.class);
-      manager.register("Controller", RobotDrive.class);
+      manager.register("Controller", RobotDriveOld.class);
 
       manager.register("AutoBackwardPark", AutoBackwardPark.class);
 
