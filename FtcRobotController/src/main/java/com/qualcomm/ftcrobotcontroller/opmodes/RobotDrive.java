@@ -6,6 +6,8 @@ package com.qualcomm.ftcrobotcontroller.opmodes;
 public class RobotDrive extends Helper {
     @Override
     public void init() {
+        motorLeft = hardwareMap.dcMotor.get("left_motor");
+        motorRight = hardwareMap.dcMotor.get("right_motor");
     }
     @Override
     public void start() {

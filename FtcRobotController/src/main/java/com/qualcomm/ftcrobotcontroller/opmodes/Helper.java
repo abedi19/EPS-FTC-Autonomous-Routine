@@ -15,10 +15,12 @@ public class Helper extends OpMode {
     public DcMotor motorLeft;
     public DcMotor motorRight;
 
+
     @Override
     public void init() {
-        motorRight = hardwareMap.dcMotor.get("right_motor");
-        motorLeft = hardwareMap.dcMotor.get("left_motor");
+        //motorRight = hardwareMap.dcMotor.get("right_motor");
+        //motorLeft = hardwareMap.dcMotor.get("left_motor");
+
     }
     @Override
     public void start() {
@@ -29,21 +31,21 @@ public class Helper extends OpMode {
     }
 
     public  void forward (){
-        motorRight.setPower(MOTOR_POWER);
-        motorLeft.setPower(Motor_Power_Reverse);
-    }
-    public void back (){
         motorRight.setPower(Motor_Power_Reverse);
         motorLeft.setPower(MOTOR_POWER);
     }
-    public void turnLeft (){
-        motorRight.setPower(Motor_Power_Reverse);
+    public void back (){
+        motorRight.setPower(MOTOR_POWER);
         motorLeft.setPower(Motor_Power_Reverse);
+    }
+    public void turnLeft (){
+        motorRight.setPower(MOTOR_POWER);
+        motorLeft.setPower(MOTOR_POWER);
 
     }
     public void turnRight () {
-        motorRight.setPower(MOTOR_POWER);
-        motorLeft.setPower(MOTOR_POWER);
+        motorRight.setPower(Motor_Power_Reverse);
+        motorLeft.setPower(Motor_Power_Reverse);
 
     }
     public void stopMoving () {
